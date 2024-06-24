@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { CircularProgress, Paper } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 import Market from './market';
 import './market.css';
+import MarketHeader from './market-header';
 
+// This component is a container for the Market component.
+// It fetches data from an API and passes it to the Market component.
 function MarketContainer() {
   const [data, setData] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -25,16 +28,12 @@ function MarketContainer() {
   }, []);
 
   return (
-    <>
-      <Paper elevation={3} className="container">
-        <h1>Futurama</h1>
-        <h3>Welcome to the futurama characters fan page</h3>
-      </Paper>
+    <div className="market-container">
+      <MarketHeader />
       <div className="container body">
-        <hr />
         {isLoading ? <CircularProgress color="success" /> : <Market data={data} />}
       </div>
-    </>
+    </div>
   );
 }
 

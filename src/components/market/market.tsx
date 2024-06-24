@@ -1,9 +1,9 @@
 import React from 'react';
+import { Modal, Tooltip } from '@mui/material';
 import {
   Card, CardHeader, CardBody, CardFooter,
 } from '../ui/card/card';
 import './market.css';
-import { Modal, Tooltip } from '@mui/material';
 
 interface Character {
     name: {
@@ -26,7 +26,7 @@ function getRandomElement<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)];
 }
 
-export default function Market(data: any) {
+export default function Market({ data }: any) {
   const [open, setOpen] = React.useState(false);
   const [selectedCharacter, setSelectedCharacter] = React.useState<Character | null>(null);
 
@@ -37,7 +37,7 @@ export default function Market(data: any) {
     setSelectedCharacter(character);
     handleOpen();
   };
-  const characters: Character[] = data.data;
+  const characters: Character[] = data;
   return (
     <>
       <Modal
@@ -47,47 +47,62 @@ export default function Market(data: any) {
         aria-describedby="modal-modal-description"
         className="modal-container"
       >
-        <div className="modal">
-          <Tooltip title={getRandomElement(selectedCharacter?.sayings ?? [])}>
-            <img src={selectedCharacter?.images.main} alt={selectedCharacter?.name.first} />
-          </Tooltip>
-          <Card>
-            <CardHeader>
+        <div className="modal card-market">
+          <div>
+            <div className="modal-card-title">
+              {' '}
               {selectedCharacter?.name.first}
               {' '}
               {selectedCharacter?.name.last}
-            </CardHeader>
-            <CardBody className="">
-              <p>
-                Age:
-                {selectedCharacter?.age}
-              </p>
-              <p>
-                Gender:
-                {selectedCharacter?.gender}
-              </p>
-              <p>
-                Home Planet:
-                {selectedCharacter?.homePlanet}
-              </p>
-              <p>
-                Species:
-                {selectedCharacter?.species}
-              </p>
-              <p>
-                Occupation:
-                {selectedCharacter?.occupation}
-              </p>
-            </CardBody>
-          </Card>
+            </div>
+            <hr />
+            <Tooltip title={getRandomElement(selectedCharacter?.sayings ?? [])}>
+              <img src={selectedCharacter?.images.main} alt={selectedCharacter?.name.first} />
+            </Tooltip>
+          </div>
+          <div className="modal-description">
+            <p>
+              <span className="modal-card-title">
+                {' '}
+                {selectedCharacter?.name.first}
+                {' '}
+                {selectedCharacter?.name.middle}
+                {' '}
+                {selectedCharacter?.name.last}
+              </span>
+            </p>
+            <hr />
+            <p>
+              <span className="modal-text">Age: </span>
+              {selectedCharacter?.age ?? 'Unknown'}
+            </p>
+            <p>
+              <span className="modal-text">Gender: </span>
+              {selectedCharacter?.gender ?? 'Unknown'}
+            </p>
+            <p>
+              <span className="modal-text">Home Planet: </span>
+              {selectedCharacter?.homePlanet ?? 'Unknown'}
+            </p>
+            <p>
+              <span className="modal-text">Species: </span>
+              {selectedCharacter?.species ?? 'Unknown'}
+            </p>
+            <p>
+              <span className="modal-text">Occupation: </span>
+              {selectedCharacter?.occupation ?? 'Unknown'}
+            </p>
+          </div>
         </div>
       </Modal>
 
       <div className="list">
         {characters.map((character: Character, index: number) => (
-          <Card key={index} onClick={() => handleSelect(character)}>
+          <Card onClick={() => handleSelect(character)} className="card-market">
             <div>
-              <CardHeader className="rounded">{character.name.first}</CardHeader>
+              <CardHeader className="rounded">
+                {character.name.first ? character.name.first : character.name.last}
+              </CardHeader>
 
               <CardBody>
                 <img src={character.images.main} alt={character.name.first} />

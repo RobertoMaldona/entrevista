@@ -1,37 +1,87 @@
-# Instalación de repositorio
+# Proyecto de Entrevista - Marketplace de Futurama
 
+## Descripción
+Este proyecto es una aplicación web desarrollada con React y TypeScript que muestra información de personajes de Futurama, simulando un marketplace. Utiliza una API pública para obtener los datos de los personajes y los presenta en una interfaz de usuario atractiva y responsive.
+
+## Características
+- Visualización de personajes de Futurama en formato de tarjetas
+- Navegación entre páginas de inicio y marketplace
+- Diseño responsivo utilizando Material-UI
+- Implementación de routing con React Router
+- Uso de TypeScript para tipado estático
+
+## Tecnologías Utilizadas
+- React 17
+- TypeScript
+- Material-UI
+- React Router
+- ESLint para linting de código
+
+## Requisitos Previos
+- Node.js (versión 20 o superior)
+- npm (normalmente viene con Node.js)
+
+## Instalación
 Al descargar esta app, basta con correr `npm install`, en donde se instalarán todas las dependencias necesarias. Recomendamos fuertemente usar NVM y escoger node 20.
 
-## Evaluación
+## Ejecución
+Para iniciar la aplicación en modo de desarrollo: `npm run start`
 
-Luego de tener instalado este repo, nos gustaría ver tu comportamiento en las aplicaciones de frontend. En este
-repo viene instalado todo lo necesario para que comiences una nueva App web, con algunas librerías ya establecidas
-por nosotros. El requerimiento será mostrar en esta aplicación web la información entregada por una API pública, a
-modo de Marketplace, en donde podrás utilizar componentes creados por tí (o sea HTML y CSS) o bien utilizar
-aquellos de una librería de estilos que está instalada en este repo (MUI, verás un link en el componente principal y algunos ejemplos de implementación de componentes).
+La aplicación se abrirá automáticamente en tu navegador predeterminado. Si no, visita `http://localhost:3000`.
 
-- Aquí un guía básica visual de de cómo queremos que presentes la información ([Draw.io](https://drive.google.com/file/d/1WQG5JDl8qXfW7sdheUX-y_qjENrGj4al/view?usp=sharing))
-- Aquí hay un ejemplo de una API pública ([Api futurama](https://www.sampleapis.com/api-list/futurama)) con imágenes, en la seccion "characters"
-- Puedes instalar otras librerias si lo estimas conveniente
-- Para iniciar la app en modo desarrollador basta el comando `npm run start`
-- Existen puntos extras por:
-  - Diseño
-  - Modularización de componentes
-  - Routeo
-  - Testing
+## Scripts Disponibles
+- `npm run start`: Inicia el servidor de desarrollo
+- `npm run build`: Construye la aplicación para producción
+- `npm run test`: Ejecuta las pruebas
+- `npm run lint`: Ejecuta el linter para verificar el código
+- `npm run lint:fix`: Ejecuta el linter para corregir el código
 
-# Testing
- Se utilizará una librería de testing llamada PlayWright, en donde sus dependencias se instalan
-así (NO sobreescribir los archivos ya existentes):
-- `npx playwright install`
-- `npx playwright install-deps`
+## Estructura del Proyecto
+Claro, aquí tienes una versión actualizada del README desde la sección de instalación, incluyendo una explicación más detallada de la estructura del proyecto:
+markdownCopy## Instalación
+1. Clona este repositorio:
+git clone [URL_DEL_REPOSITORIO]
+Copy2. Navega al directorio del proyecto:
+cd [NOMBRE_DEL_DIRECTORIO]
+Copy3. Instala las dependencias:
+npm install
+Copy
+## Ejecución
+Para iniciar la aplicación en modo de desarrollo:
+npm start
+CopyLa aplicación se abrirá automáticamente en tu navegador predeterminado. Si no, visita `http://localhost:3000`.
 
-El comando  `npx playwright install-deps` es para instalar las dependencias de playwright, que es solamente soportado para MacOS y Ubuntu. Si tienes otra distrubición de Linux probablemente necesites algunos pasos extra para la instalación de dependencias. Algunas librerías que te podrían faltar podrían ser las siguientes: `enchant`, `icu`, `libwebp` y/o `libffi7`
+## Scripts Disponibles
+- `npm start`: Inicia el servidor de desarrollo
+- `npm run build`: Construye la aplicación para producción
+- `npm test`: Ejecuta las pruebas
+- `npm run lint`: Ejecuta el linter para verificar el código
 
-Finalmente, para correr ejecutar los tests basta el comando `npx playwright test` o con interfaz gráfica `npx playwright test --ui`
+## Estructura del Proyecto
+src/
+├── components/
+│   ├── home/
+│   ├── market/
+│   └── ui/
+├── App.tsx
+└── index.tsx
+
+Los componentes están organizados por funcionalidad. La carpeta `ui` contiene componentes reutilizables, mientras que `home` y `market` contienen componentes específicos de cada página. Todos los scripts con `-container` se utilizan como el contenedor de la componente general, para poder inyectar datos, yá sean de una api o de otra fuente externa. 
+
+## Navegación
+
+La aplicación tiene dos páginas principales:
+
+1. **Página de Inicio**: Contiene un botón para navegar al marketplace de Futurama.
+2. **Marketplace de Futurama**: Muestra tarjetas con información de personajes de la serie.
+
+Para acceder al marketplace, haz clic en el botón correspondiente en la página de inicio.
+
+## Características del Marketplace
+
+- Muestra personajes de Futurama en tarjetas.
+- Datos cargados desde una API pública.
+- Diseño responsive.
 
 
-Deberás subir tu desarrollo a un repositorio público que deberás compartir para su evaluación (Puedes hacer un fork de este repo, es más simple)
 
-
-Happy coding!
